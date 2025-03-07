@@ -35,7 +35,7 @@ class SavingAccount(BankAccount):
         
     def Interest(self):
         self.balance += self.balance*self.interest_rate/365
-        
+        return self.balance
         
 
 
