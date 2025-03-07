@@ -17,8 +17,10 @@ class BankAccount:
         self.withdrawAmount = withdrawAmount  # amount withdrawn should be subtracted from the balance of the account
         if self.withdrawAmount > self.balance:
             print("Enter valid amount")
+        elif self.withdrawAmount < 0 :
+            print("Amount cannot be negative")
         else:
-            self.balance = self.balance - self.withdrawAmount
+            self.balance -= self.withdrawAmount
             return self.balance
         
     def display(self):
@@ -29,12 +31,12 @@ class BankAccount:
 
 
 class SavingAccount(BankAccount):
-    def __init__(self,Account_number,Account_holder,balance,interest_rate):
-        super().__init__(Account_number,Account_holder,balance)
+    def __init__(self,account_number,account_holder,balance,interest_rate):
+        super().__init__(account_number,account_holder,balance)
         self.interest_rate = interest_rate
         
-    def Interest(self):
-        self.balance += self.balance*self.interest_rate/365
+    def Interest(self,days):
+        self.balance += self.balance*self.interest_rate/365*days
         return self.balance
         
 
